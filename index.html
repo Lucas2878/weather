@@ -1,6 +1,22 @@
+
 <html>
 <head>
-    <title>Weather App</title>
+    <title>Weather Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+        }
+        .weather-result {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Weather Checker</h1>
@@ -12,7 +28,7 @@
     <script>
         function checkWeather() {
             var city = document.getElementById('city').value;
-            var apiKey = 'YOUR_API_KEY'; // Replace this with your OpenWeather API key
+            var apiKey = 'cdf2f7ab344084a396b0452e64396216'; 
             var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey + '&units=imperial';
 
             fetch(url)
@@ -22,7 +38,7 @@
                         document.getElementById('result').innerHTML =
                             'Weather in ' + data.name + ': ' + data.main.temp + '°F, ' + data.weather[0].description;
                     } else {
-                        document.getElementById('result').innerText = 'City not found!';
+                        document.getElementById('result').innerText = 'City is not found!';
                     }
                 })
                 .catch(error => {
